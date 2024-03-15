@@ -64,7 +64,7 @@ class TicketServiceImplTest {
     }
 
     @Test
-    @DisplayName("When fetching ticket details")
+    @DisplayName("When fetching user ticket details")
     void getTicketDetails_existingUserTicket() throws Exception {
         String emailAddress = "john@example.com";
         Ticket expectedTicket = new Ticket();
@@ -79,7 +79,7 @@ class TicketServiceImplTest {
     }
 
     @Test
-    @DisplayName("When fetching user ticket details")
+    @DisplayName("When fetching user ticket details that do not exist")
     void getTicketDetails_nonExistingUserTicket() {
         String emailAddress = "nonexistent@example.com";
         when(userTicketMapMock.containsKey(emailAddress)).thenReturn(false);
@@ -89,7 +89,7 @@ class TicketServiceImplTest {
     }
 
     @Test
-    @DisplayName("When fetching ticket details of users for a particular section")
+    @DisplayName("When fetching ticket details of all users for a particular section")
     void getSectionDetails() {
         Ticket ticket1 = new Ticket();
         Ticket ticket2 = new Ticket();
